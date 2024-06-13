@@ -9,10 +9,27 @@ const bt = document.getElementById("genera-griglia");
 // seleziono il container che conterra le celle
 const container = document.querySelector(".container");
 
+
+
+document.getElementById('genera-griglia').addEventListener('click', () => {
+    container.classList.add('visibile');
+    console.log(container);
+});
+
+
 // generare 100 celle e aggiungerle al container
 for (let i = 1; i <= 100; i++){
+    // creo elemento (div)
     const cella = document.createElement("div");
+    // aggiungo al elemento (div) la classe (cella)
     cella.classList.add("cella");
-    cella.textContent = i;
     container.append(cella);
+
+    // evento al click della cella
+    cella.addEventListener('click', () => {
+    cella.classList.toggle('cliccata');
+    console.log(`Hai cliccato sulla cella numero ${i}`);
+});
 }
+
+
